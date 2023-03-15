@@ -5,7 +5,7 @@ pipeline {
 		}
 	}
 	environment {
-		PACKAGE = "/opt/project1/workspace/Final-Project1/target/LoginWebApp.war"
+		PACKAGE = "/opt/project1/workspace/Final-Project1/target/"
 	}
 	tools {
 		jdk "java-8"

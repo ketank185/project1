@@ -30,7 +30,7 @@ pipeline {
 				sh "sudo yum install docker -y"
 				sh "sudo service docker start"
 				sh "sudo docker rm -f server1"
-				sh "sudo docker run -dp 8080:8080 tomcat:9.0 --name server1"
+				sh "sudo docker run -dp 8080:8080 --name server1 tomcat:9.0"
 			}
 		}
 	}

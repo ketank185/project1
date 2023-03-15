@@ -21,6 +21,7 @@ pipeline {
 		}
 		stage ("packaging project and deploy") {
 			steps {
+				sh "JAVA_HOME=/opt/project1/tools/hudson.model.JDK/java-8"
 				sh "mvn clean package"
 			}
 		}

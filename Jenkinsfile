@@ -7,6 +7,7 @@ pipeline {
 	tools {
 		jdk "java-8"
 		maven "maven-3.9"
+		git "git-1.0"
 	}
 	stages {
 		stage ("clean workspace") {
@@ -19,10 +20,15 @@ pipeline {
 				checkout scm
 			}
 		}
-		stage ("packaging project and deploy") {
+		stage ("packaging project ") {
 			steps {
-				//sh "JAVA_HOME=/opt/project1/tools/hudson.model.JDK/java-8"
 				sh "mvn clean package"
+			}
+		}
+		stage ("deploy on docker conatiner") {
+			steps {
+				sh "docker rm -f server1"
+				sh "docker run -dp 8080:8080 tomcat:9.0 --name server1"
 			}
 		}
 	}

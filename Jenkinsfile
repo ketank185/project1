@@ -5,7 +5,7 @@ pipeline {
 		}
 	}
 	tools {
-		jdk "java-8"
+		JDK "java-8"
 		maven "maven-3.9"
 		git "git-1.0"
 	}

@@ -27,6 +27,7 @@ pipeline {
 		}
 		stage ("deploy on docker conatiner") {
 			steps {
+				sh "sudo yum install docker -y"
 				sh "docker rm -f server1"
 				sh "docker run -dp 8080:8080 tomcat:9.0 --name server1"
 			}

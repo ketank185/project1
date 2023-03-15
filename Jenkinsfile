@@ -4,6 +4,11 @@ pipeline {
 			label "slave1"
 		}
 	}
+	tools {
+		jdk "java-8"
+		maven "maven-3.9"
+		git "git-1.0"
+	}
 	stages {
 		stage ("clean workspace") {
 			steps {

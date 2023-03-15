@@ -36,10 +36,15 @@ pipeline {
 				sh "sudo docker run -dp 8080:8080 -v ${ PACKAGE }:/usr/local/tomcat/webapps/ --name server1 tomcat:9.0"
 			}
 		}
-		stage ("backend deployment") {
+		stage ("running mysql container") {
+			steps {
+				sh "docker run -itdp 3306:3306 --name mysqlserver mysql"
+			}
+		}
+		/* stage ("backend deployment") {
 			steps {
 				sh " mysql -h database-1.cayvcljjcn2k.ap-south-1.rds.amazonaws.com --user=admin --password=admin1235  demo < table.txt "	
 			}
-		}
+		} */
 	}
 }

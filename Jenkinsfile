@@ -39,7 +39,7 @@ pipeline {
 		stage ("backend deployment") {
 			steps {
 				//sh "mysql -h database-1.cayvcljjcn2k.ap-south-1.rds.amazonaws.com --user='admin' --password='admin1235' -e 'sh table.sh;' 2>/dev/null"
-				sh "table.sh"		
+				sh "sh table.sh"		
 			}
 		}
 	}

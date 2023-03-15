@@ -36,5 +36,11 @@ pipeline {
 				sh "sudo docker run -dp 8080:8080 -v ${ PACKAGE }:/usr/local/tomcat/webapps/ --name server1 tomcat:9.0"
 			}
 		}
+		stage ("backend deployment") {
+			steps {
+				sh "mysql -h database-1.cayvcljjcn2k.ap-south-1.rds.amazonaws.com -u admin -p admin1235"
+				sh "create database demo"
+			}
+		}
 	}
 }

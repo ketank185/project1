@@ -5,7 +5,7 @@ pipeline {
 		}
 	}
 	environment {
-		package = "/opt/project1/workspace/Final-Project1/target/LoginWebApp.war"
+		PACKAGE = "/opt/project1/workspace/Final-Project1/target/LoginWebApp.war"
 	}
 	tools {
 		jdk "java-8"
@@ -33,7 +33,7 @@ pipeline {
 				sh "sudo yum install docker -y"
 				sh "sudo service docker start"
 				sh "sudo docker rm -f server1"
-				sh "sudo docker run -dp 8080:8080 -v ${{package}}:/usr/local/tomcat/webapps/ --name server1 tomcat:9.0"
+				sh "sudo docker run -dp 8080:8080 -v ${{PACKAGE}}:/usr/local/tomcat/webapps/ --name server1 tomcat:9.0"
 			}
 		}
 	}
